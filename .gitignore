@@ -4,3 +4,9 @@
 /themes/simple/
 /_resources/
 /public/_resources/
+
+## Dev
+/.vagrant/
+Vagrantfile
+Dockerfile
+/.idea/
