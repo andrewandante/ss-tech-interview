@@ -1,5 +1,14 @@
 ## Silverstripe Ltd Technical Test
 
+<h2 class="info" style="color: orange">
+PLEASE FORK THIS REPO WHEN COMPLETING THE TEST
+</h2>
+
+#### Make commits, pull requests etc. against your own fork and send us a link once complete.
+
+#### Please *do not* make commits or pull requests against this repo, or close any of the issues.
+
+
 ## Installation
 
 `composer install`
@@ -24,7 +33,7 @@ a candidate to submit a form to apply for a job with us! However, we've just
 inherited this site from Not-Very-Good-Dev-Agency and the client has asked
 us to fix it up.
 
-We'd like you to fork this repository and work through the tickets the client
+**We'd like you to fork this repository** and work through the tickets the client
 has raised, and share it with us before your technical interview so we can
 check what you've done.
 
