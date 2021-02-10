@@ -22,6 +22,26 @@ order to get you started.
 See [the "Getting Started" section on the docs site](https://docs.silverstripe.org/en/4/getting_started/)
 for more information if you are having trouble setting up.
 
+## Docker Environment
+
+`composer install`
+
+Create `.env` file from `.env.example` then uncomment and update to use docker specific configurations
+
+Use `docker-compose` commands for easier setup below:
+
+Runs the installation process
+`docker-compose exec web composer dev-build`
+
+Import database back-up
+`docker-compose exec -T web mysql -u root -h db SS_mysite < ./ss_tech_test.sql`
+
+View the website at [http://localhost:8000/](http://localhost:8000/)
+
+View the CMS at [http://localhost:8000/admin](http://localhost:8000/admin)
+
+Check the `.env` file to get access codes
+
 ## What do I do with this?
 
 This test is designed to mirror the workflow that someone in the SilverHawks
