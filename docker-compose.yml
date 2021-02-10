@@ -1,0 +1,59 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: ./
+    volumes:
+       - .:/var/www/html
+    depends_on:
+       - db
+       - mail
+    ports:
+      - "8000:80"
+    tty: true
+    restart: always
+    environment:
+       - SS_ERROR_LOG=error.log
+       - DOCUMENT_ROOT=/var/www/html/public
+       - SS_TRUSTED_PROXY_IPS=*
+       - SS_ENVIRONMENT_TYPE=dev
+       - SS_DATABASE_SERVER=database
+       - SS_DATABASE_NAME=SS_mysite
+       - SS_DATABASE_USERNAME=root
+       - SS_DATABASE_PASSWORD=
+       - SS_DEFAULT_ADMIN_USERNAME=admin
+       - SS_DEFAULT_ADMIN_PASSWORD=password
+       - SS_DATABASE_TIMEZONE=SYSTEM
+    networks:
+      webnet:
+        aliases:
+          - web.d
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3336:3306"
+    tty: true
+    environment:
+       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: always
+    networks:
+      webnet:
+        aliases:
+          - database
+  mail:
+    image: mailhog/mailhog
+    restart: always
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    networks:
+      - webnet
+
+networks:
+  webnet:
+
+volumes:
+  db-data:
